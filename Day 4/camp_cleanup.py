@@ -3,12 +3,6 @@ input = open("input.txt", "r")
 # Part One
 overlaps = 0
 
-def swap(a, b):
-    temp = a
-    a = b
-    b = temp
-    return a, b
-
 for line in input:
     line = line.replace("\n", "")
     pairs = line.split(",")
@@ -19,17 +13,7 @@ for line in input:
     fnum_second_assignment = int(assignment_pairs[1][0])
     snum_second_assignment = int(assignment_pairs[1][1])
 
-    # Swap values to order processes
-    if fnum_first_assignment > fnum_second_assignment:
-        fnum_first_assignment, fnum_second_assignment = swap(fnum_first_assignment, fnum_second_assignment)
-        snum_first_assignment, snum_second_assignment = swap(snum_first_assignment, snum_second_assignment)
-    
-    if fnum_first_assignment == fnum_second_assignment:
-        if snum_first_assignment < snum_second_assignment:
-            fnum_first_assignment, fnum_second_assignment = swap(fnum_first_assignment, fnum_second_assignment)
-            snum_first_assignment, snum_second_assignment = swap(snum_first_assignment, snum_second_assignment)
-    
-    if fnum_second_assignment <= snum_first_assignment and snum_second_assignment <= snum_first_assignment:
+    if (fnum_first_assignment <= fnum_second_assignment and snum_first_assignment >= snum_second_assignment) or (fnum_first_assignment >= fnum_second_assignment and snum_first_assignment <= snum_second_assignment):
         overlaps += 1
 
 print("Part One Answer:", overlaps)
@@ -49,17 +33,7 @@ for line in input:
     fnum_second_assignment = int(assignment_pairs[1][0])
     snum_second_assignment = int(assignment_pairs[1][1])
 
-    # Swap values to order processes
-    if fnum_first_assignment > fnum_second_assignment:
-        fnum_first_assignment, fnum_second_assignment = swap(fnum_first_assignment, fnum_second_assignment)
-        snum_first_assignment, snum_second_assignment = swap(snum_first_assignment, snum_second_assignment)
-    
-    if fnum_first_assignment == fnum_second_assignment:
-        if snum_first_assignment < snum_second_assignment:
-            fnum_first_assignment, fnum_second_assignment = swap(fnum_first_assignment, fnum_second_assignment)
-            snum_first_assignment, snum_second_assignment = swap(snum_first_assignment, snum_second_assignment)
-    
-    if fnum_second_assignment <= snum_first_assignment:
+    if (fnum_first_assignment <= snum_second_assignment and snum_first_assignment >= fnum_second_assignment):
         overlaps += 1
 
 print("Part Two Answer:", overlaps)
