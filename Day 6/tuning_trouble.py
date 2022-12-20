@@ -21,3 +21,5 @@ for i in range(len(line) - 14):
         break
 
 print("Part Two Answer:", last_data_stream_packet)
+
+input.close()
