@@ -57,3 +57,5 @@ for line in input:
     stacks[moves[1]] = stacks[moves[1]][:len(stacks[moves[1]])-moves[0]]
 
 print("Part Two Answer:", "".join([v[len(v)-1] for v in stacks.values()]))
+
+input.close()
