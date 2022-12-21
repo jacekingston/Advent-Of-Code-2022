@@ -2,7 +2,7 @@ input = open("input.txt", "r")
 
 # Setting Up file system directory with corresponding sizes
 directory_sizes = {}
-curr_directory = ""
+curr_directory = "/"
 
 for line in input:
     line = (line.replace("\n", "")).split(" ")
@@ -14,8 +14,6 @@ for line in input:
             curr_directory = curr_directory[:len(curr_directory) - last_index - 1] + "/"
         elif line[2] != "/":
             curr_directory += line[2] + "/"
-        else:
-            curr_directory += line[2]
 
         if directory_sizes.get(curr_directory, None) == None:
             directory_sizes[curr_directory] = 0
