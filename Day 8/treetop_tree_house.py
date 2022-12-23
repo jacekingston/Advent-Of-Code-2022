@@ -10,6 +10,9 @@ for line in input:
         tree_line.append(int(i))
     tree_grid.append(tree_line)
 
+if len(tree_grid) <= 0:
+    exit()
+
 # Part One
 num_visible = 0
     
